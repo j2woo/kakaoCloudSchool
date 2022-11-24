@@ -1,0 +1,16 @@
+{
+    "keepSettings": {
+        "type": 2,
+        "amount": 10
+    },
+    "auditFilename": "audit.json",
+    "hashType": "md5",
+    "extension": "",
+    "files": [
+        {
+            "date": 1669257159860,
+            "name": "C:\\Users\\user\\Documents\\KAKAOCLOUDSCHOOL\\Node\\mariadb\\log\\access-20221124.log",
+            "hash": "deacdb6a190555d6aee11ed2ffe21eeb"
+        }
+    ]
+}
