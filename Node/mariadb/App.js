@@ -98,16 +98,82 @@ connection.connect((error) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+
+
+
+
+
+app.get('/item/all',(req,res)=>{
+    // 템플릿 엔진: res.render(파일경로, 데이터)
+    // 템플릿 엔진에 넘겨주는 데이터는 프로그래밍 언어의 데이터
+    // JSON 출력: res.json(데이터)
+    // json 문자열의 형태로 데이터 제공
+    //Front end에서 데이터를 수신해서 출력
+    connection.query("select * from goods order by itemid desc",[],(err, results, fields)=>{
+        if(err){
+            //에러가 발생한 경우
+            // 에러가 발생했다고 데이터를 전송하지 않으면 안됨
+            res.json({'result':false});
+        }else{
+            // 정상 응답을 한 경우
+            res.json({'result':true, 'list':results });
+        }
+    } );
+})
+
+app.get('/item/list/:page',(req,res)=>{
+    // 파라미터 읽기
+    // 파라미터를 주지 않으면 page는 undefined가 됩니다.
+    /*
+    const page=req.query.page;
+    console.log(page);*/
+    /*
+    // url에 포함된 파라미터 읽기
+    // 데이터를 전달해주지 않으면 아무일도 하지 않음
+    const page= req.params.page;
+    console.log(page);*/
+
+});
+
+// 데이터 일부분 가져오기
+// URL은 /item/list
+// 파라미터는 pageno 1개 인데 없으면 1로 설정
+app.get('/item/list',(req,res)=>{
+    // 파라미터 가져오기
+    let pageno=req.query.pageno;
+    if(pageno== undefined ){
+        pageno=1;
+    }
+    console.log(pageno);
+    // 브라우저에서 테스트 - 콘솔 확인
+    // localhost:9000/item/list
+    // localhost:9000/item/list?pageno=3
+
+    // item 테이블에서 itemid를 가지고 내림차순 정렬해서
+    // 페이지 단위로 데이터 가져오기
+    // select * from item order by itemid desc limit 시작번호, 5
+    // 시작번호=(pageno-1)*5
+
+    // 파라미터는 무조건 문자열
+    // 파라미터를 가지고 산술연산을 할 때는 숫자로 변환을 수행
+
+    connection.query("select * from goods order by itemid desc limit ?, 5",[(parseInt)(pageno-1)*5],(err,results,fields)=>{
+        if(err){
+            res.json({"result":false});
+        }else{
+            res.json({"result":true, "list": results});
+        }
+
+    });
+})
 // 에러 발생시 처리
 app.use((err,req,res,next)=>{
     console.log(err);
     res.status(500).send(err.message);
 });
-
-
-
-
 // 서버 구동
 app.listen(app.get('port'),()=>{
+
     console.log(app.get('port'),'번 포트에서 대기중');
-})
+});
