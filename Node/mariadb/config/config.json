@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password":"0303",
+    "database": "woo",
+    "host": "192.168.0.174",
+    "port":3306,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password":"0303",
+    "database": "woo",
+    "host": "192.168.0.174",
+    "port":3306,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password":"0303",
+    "database": "woo",
+    "host": "192.168.0.174",
+    "port":3306,
+    "dialect": "mysql"
+  }
+}
