@@ -1,0 +1,16 @@
+{
+    "keepSettings": {
+        "type": 2,
+        "amount": 10
+    },
+    "auditFilename": "audit.json",
+    "hashType": "md5",
+    "extension": "",
+    "files": [
+        {
+            "date": 1669772333815,
+            "name": "C:\\Users\\user\\Documents\\kka\\database\\Authentication\\log\\access-20221130.log",
+            "hash": "83a152fb85cbf9e98362f7bab84081d4"
+        }
+    ]
+}

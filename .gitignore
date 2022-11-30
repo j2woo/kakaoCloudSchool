@@ -2,3 +2,5 @@ Node/mariadb/node_modules
 Node/mariadb/log
 Node/relativetable/node_modules
 database/MongoDB/mongodb_node/node_modules
+
+database/Authentication/node_modules
