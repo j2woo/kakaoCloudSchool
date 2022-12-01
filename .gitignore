@@ -4,3 +4,5 @@ Node/relativetable/node_modules
 database/MongoDB/mongodb_node/node_modules
 
 database/Authentication/node_modules
+
+Node/apiserver/node_modules
