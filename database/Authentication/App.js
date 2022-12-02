@@ -38,7 +38,7 @@ const accessLogStream = FileStreamRotator.getStream({
   date_format: "YYYYMMDD",
   filename: path.join(logDirectory, "access-%DATE%.log"),
   frequency: "daily",
-  verbose: false,
+  verbose: false
 });
 
 // 로그 설정

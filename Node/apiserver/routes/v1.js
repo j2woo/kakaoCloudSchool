@@ -1,13 +1,36 @@
 const express = require("express");
-//const jwt = require("jsonwebtoken");
-const { verifyToken } = require("./middlewares");
+const jwt = require("jsonwebtoken");
+const { verifyToken, deprecated } = require("./middlewares");
 
-const { Domain, User } = require("../models");
+const { Domain, User, Post, Hashtag } = require("../models");
 
 const router = express.Router();
+// 모든 라우팅 처리에서 deprecated 적용
+router.use(deprecated);
+
+// 데이터를 리턴하는 요청 처리
+router.get("/posts/my", verifyToken, (req, res) => {
+  Post.findAll({ where: { userId: req.decoded.id } })
+    .then((posts) => {
+      console.log(posts);
+      res.json({
+        code: 200,
+        payload: posts,
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.status(500).json({
+        code: 500,
+        message: "서버 에러",
+      });
+    });
+});
+
 router.post("/token", async (req, res) => {
   const { clientSecret } = req.body;
   try {
+    // 도메인 찾아오기
     const domain = await Domain.findOne({
       where: { clientSecret },
       include: {
@@ -21,6 +44,7 @@ router.post("/token", async (req, res) => {
         message: "등록되지 않은 도메인입니다. 먼저 도메인을 등록하세요",
       });
     }
+    // 토큰 생성
     const token = jwt.sign(
       {
         id: domain.User.id,
