@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import MyComponent from "./MyComponent";
+import MyComponent from "../../react_component2/src/MyComponent";
+import EventPractice from "../../react_component2/src/EventPractice";
+
 class App extends Component {
   render() {
     return (
