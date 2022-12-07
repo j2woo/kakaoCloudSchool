@@ -45,3 +45,5 @@ class ValidationSample extends Component {
     );
   }
 }
+
+export default ValidationSample;
