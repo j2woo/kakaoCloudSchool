@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "PyeongChangPeace-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.ToDoInsert {
+  display: flex;
+  background: #f8f988;
+  input {
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: white;
+    &::placeholder {
+      font-family: "PyeongChangPeace-Bold";
+      color: rgb(231, 168, 9);
+    }
+    flex: 1;
+    /* 상위 태그에 flex가 설정되어 있으면
+        전체 합에 대한 비율로 배치가 가능 - bootstrap이 많이 이용*/
+  }
+
+  button {
+    background: none;
+    outline: none;
+    border: none;
+    background: #868e96;
+    color: rgb(90, 84, 84);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s background ease-in;
+    &:hovor {
+      color: #adb5bd;
+    }
+  }
+}

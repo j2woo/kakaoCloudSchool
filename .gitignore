@@ -11,4 +11,8 @@ react/react_component/node_modules
 react/react_component2/node_modules
 react/react_hook/node_modules
 react/react_styling/node_modules
+react/react_todo/node_modules
+react/react_immer/node_modules
+react/react_redux/node_modules
+react/react_rounting/node_modules
 Node/apiclient/node_modules
