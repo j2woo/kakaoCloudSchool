@@ -69,3 +69,4 @@
 - Presentational Component: 리덕스 스터에 직접 접근하지 않고 필요한 값이나 함수를 넘겨받아서 사용하는 컴포넌트로 UI를 선언하는 것에만 집중
 
 - Container Component: 리덕스 스토어에 접근해서 상태를 조회하거나 액션을 디스패치하는 컴포넌트로 HTML 태그를 사용하지 않고 Component를 가져와서 사용만 함
+  yarn add redux react-redux
